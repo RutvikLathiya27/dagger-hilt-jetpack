@@ -11,9 +11,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.dagger_hilt_compose.adapter.AnalyticsAdapter
 import com.example.dagger_hilt_compose.ui.theme.DaggerHiltComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+/**
+ * if fragment annoted with @AndroidEntryPoint than
+ * must parent of it annoted
+ */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject lateinit var analytics : AnalyticsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
