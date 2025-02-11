@@ -25,6 +25,22 @@ abstract class AnalyticsModule{
     abstract fun bindAnalyticsService(
         analyticsServiceImpl: AnalyticsServiceImpl
     ) : AnalyticsService
+
+    @Binds
+    abstract fun bindDummyService(
+        dummyServiceImpl: DummyServiceImpl
+    ) : AnalyticsService
+}
+
+class DummyServiceImpl @Inject constructor() : AnalyticsService{
+    init {
+        Log.e("TAG", "Dummy Service Impl>>>>>>>")
+    }
+
+    override fun analyticsMethods() {
+
+    }
+
 }
 
 class AnalyticsServiceImpl @Inject constructor() : AnalyticsService{
